@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ProfileEdit from './pages/ProfileEdit';
 import Profile from './pages/Profile';
 import Favorites from './pages/Favorites';
