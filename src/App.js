@@ -28,18 +28,6 @@ class App extends React.Component {
     });
   }
 
-  /*   loadingScreen = () => {
-    const message = createCustomElement('span', 'loading', 'Carregando...');
-    const displayProduct = document.querySelector('.items');
-    displayProduct.appendChild(message);
-  };
-
-  removeloadingScreen = () => {
-    const message = document.querySelector('.loading');
-    message.remove();
-  };
- */
-
   render() {
     const { isButtonDisabled, nameEntered } = this.state;
     return (
