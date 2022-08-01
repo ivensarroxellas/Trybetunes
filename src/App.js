@@ -9,17 +9,57 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
 class App extends React.Component {
+  state ={
+    nameEntered: '',
+    isButtonDisabled: true,
+  }
+
+  handleChange = (event) => {
+    this.setState(() => ({ [event.target.name]: event.target.value }),
+      this.handledButton);
+  };
+
+  handledButton = () => {
+    const { nameEntered } = this.state;
+    const tres = 3;
+    const button = nameEntered.length < tres;
+    this.setState({
+      isButtonDisabled: button,
+    });
+  }
+
+  /*   loadingScreen = () => {
+    const message = createCustomElement('span', 'loading', 'Carregando...');
+    const displayProduct = document.querySelector('.items');
+    displayProduct.appendChild(message);
+  };
+
+  removeloadingScreen = () => {
+    const message = document.querySelector('.loading');
+    message.remove();
+  };
+ */
+
   render() {
+    const { isButtonDisabled, nameEntered } = this.state;
     return (
       <>
-        <p>TrybeTunes</p>
+        <p id="app">TrybeTunes</p>
         <Switch>
           <Route path="/profile/edit" render={ () => <ProfileEdit /> } />
           <Route path="/profile" render={ () => <Profile /> } />
           <Route path="/favorites" render={ () => <Favorites /> } />
           <Route path="/album/:id" render={ () => <Album /> } />
           <Route path="/search" render={ () => <Search /> } />
-          <Route exact path="/" render={ () => <Login /> } />
+          <Route
+            exact
+            path="/"
+            render={ () => (<Login
+              nameEntered={ nameEntered }
+              isButtonDisabled={ isButtonDisabled }
+              onInputChange={ this.handleChange }
+            />) }
+          />
           <Route exact path="" component={ NotFound } />
         </Switch>
       </>
