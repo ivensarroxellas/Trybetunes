@@ -7,7 +7,6 @@ import Album from './pages/Album';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import Header from './component/Header';
 
 class App extends React.Component {
   state ={

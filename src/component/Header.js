@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavegateMenu from './NavegateMenu';
 import { getUser } from '../services/userAPI';
 
 class Header extends Component {
@@ -10,11 +11,9 @@ class Header extends Component {
   async componentDidMount() {
     const response = await getUser();
     const { name } = response;
-    console.log(name);
     this.setState({
       loading: false,
       name,
-
     });
   }
 
@@ -22,9 +21,12 @@ class Header extends Component {
     const { loading, name } = this.state;
     return (
       <header data-testid="header-component">
-        {loading
-          ? <span>Carregando...</span>
-          : <h2 data-testid="header-user-name">{name}</h2>}
+        <section>
+          {loading
+            ? <span>Carregando...</span>
+            : <h2 data-testid="header-user-name">{name}</h2>}
+        </section>
+        <NavegateMenu />
       </header>
     );
   }
