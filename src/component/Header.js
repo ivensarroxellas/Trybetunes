@@ -21,12 +21,12 @@ class Header extends Component {
     const { loading, name } = this.state;
     return (
       <header data-testid="header-component">
+        <NavegateMenu />
         <section>
           {loading
             ? <span>Carregando...</span>
             : <h2 data-testid="header-user-name">{name}</h2>}
         </section>
-        <NavegateMenu />
       </header>
     );
   }
