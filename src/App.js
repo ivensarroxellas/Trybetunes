@@ -34,11 +34,11 @@ class App extends React.Component {
       <>
         <p id="app">TrybeTunes</p>
         <Switch>
-          <Route path="/profile/edit" render={ () => <ProfileEdit /> } />
-          <Route path="/profile" render={ () => <Profile /> } />
-          <Route path="/favorites" render={ () => <Favorites /> } />
-          <Route path="/album/:id" render={ () => <Album /> } />
-          <Route path="/search" render={ () => <Search /> } />
+          <Route exact path="/profile/edit" component={ ProfileEdit } />
+          <Route exact path="/profile" component={ Profile } />
+          <Route exact path="/favorites" component={ Favorites } />
+          <Route exact path="/album/:id" component={ Album } />
+          <Route exact path="/search" render={ () => <Search /> } />
           <Route
             exact
             path="/"

@@ -83,8 +83,8 @@ class Search extends Component {
               <h2>{artist.releaseDate}</h2>
               <h3>{artist.trackCount}</h3>
               <Link
-                to={ `/album/${artist.collectionId}` }
                 data-testid={ `link-to-album-${artist.collectionId}` }
+                to={ `/album/${artist.collectionId}` }
               >
                 Música
               </Link>
