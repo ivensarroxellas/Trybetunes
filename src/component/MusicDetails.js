@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicDetails extends Component {
   constructor(props) {
@@ -9,6 +9,15 @@ class MusicDetails extends Component {
       loading: false,
       isChecked: false,
     };
+  }
+
+  componentDidMount() {
+    getFavoriteSongs().then((songs) => {
+      const { trackId } = this.props;
+      if (songs.some((song) => song.trackId === trackId)) {
+        this.setState({ isChecked: true });
+      }
+    });
   }
 
   checkedItem = (id) => {
