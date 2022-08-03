@@ -10,9 +10,8 @@ class MusicCard extends Component {
     };
   }
 
-  checkedItem = (music, index) => {
+  checkedItem = (music) => {
     this.setState({
-      isChecked: [index],
       loading: true,
     }, (() => {
       addSong(music.trackId).then(() => {
